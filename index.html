@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="title">
+    <h1>ROCK</h1>
+    <h1>PAPER</h1>
+    <h1>SCISSORS</h1>
+  </div>
+
+  <div class="score-container">
+    <div class="score-box">
+      <p>COMPUTER SCORE</p>
+      <span id="pc-score">0</span>
+    </div>
+    <div class="score-box">
+      <p>YOUR SCORE</p>
+      <span id="user-score">0</span>
+    </div>
+  </div>
+</header>
+
+<!-- GAME SCREEN -->
+<section id="game-screen">
+  <div class="triangle-container">
+    <div class="line line-left"></div>
+    <div class="line line-right"></div>
+    <div class="line line-bottom"></div>
+
+    <button class="choice rock" data-choice="rock">
+      <img src="assets/rock.jpg">
+    </button>
+
+    <button class="choice paper" data-choice="paper">
+      <img src="assets/paper.jpg">
+    </button>
+
+    <button class="choice scissors" data-choice="scissors">
+      <img src="assets/scissors.jpg">
+    </button>
+  </div>
+</section>
+
+<!-- ROUND RESULT SCREEN -->
+<section id="round-screen" class="hidden">
+  <div class="vs-container">
+    <div class="pick-box">
+      <p>YOU PICKED</p>
+      <div class="pick" id="user-pick"></div>
+    </div>
+
+    <div class="result-text" id="round-result"></div>
+
+    <div class="pick-box">
+      <p>PC PICKED</p>
+      <div class="pick" id="pc-pick"></div>
+    </div>
+  </div>
+
+  <button class="play-btn" onclick="nextRound()">NEXT</button>
+</section>
+
+<!-- HURRAY SCREEN -->
+<section id="hurray-screen" class="hidden">
+  <img src="assets/trophy.png" class="trophy">
+  <h1>HURRAY!!</h1>
+  <p>YOU WON THE GAME</p>
+  <button class="play-btn" onclick="resetGame()">PLAY AGAIN</button>
+</section>
+
+<!-- LOST SCREEN -->
+<section id="lost-screen" class="hidden">
+  <img src="assets/lost.png" class="trophy">
+  <h1>YOU LOST</h1>
+  <p>BETTER LUCK NEXT TIME</p>
+  <button class="play-btn" onclick="resetGame()">PLAY AGAIN</button>
+</section>
+
+<!-- RULES BUTTON -->
+<button class="rules-btn" onclick="toggleRules()">RULES</button>
+
+<!-- RULES POPUP -->
+<div class="rules-popup hidden" id="rules-popup">
+  <h3>Game Rules</h3>
+  <ul>
+    <li>Rock beats Scissors.</li>
+    <li>Scissors beats Paper.</li>
+    <li>Paper beats Rock.</li>
+    <li>If both players choose the same option, the round is declared a tie.</li>
+    <li>Each round winner gets 1 point.</li>
+    <li>No points are awarded for a tie.</li>
+    <li>The first player to reach 15 points wins the game.</li>
+    <li>Scores reset only after the game is fully completed.</li>
+    <li>Play again restarts the entire game.</li>
+  </ul>
+  <button class="close-btn" onclick="toggleRules()">X</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

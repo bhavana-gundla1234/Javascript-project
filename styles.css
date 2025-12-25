@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #8ccf5f;
+  color: white;
+}
+
+/* HEADER */
+.header {
+  width: 80%;
+  margin: 30px auto;
+  border: 3px solid white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.score-container {
+  display: flex;
+  gap: 20px;
+}
+
+.score-box {
+  background: white;
+  color: black;
+  padding: 15px 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.score-box span {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* GAME */
+.triangle-container {
+  position: relative;
+  width: 300px;
+  height: 260px;
+  margin: 80px auto;
+}
+
+.line {
+  position: absolute;
+  background: #2f5d38;
+}
+
+.line-left {
+  width: 6px;
+  height: 120px;
+  left: 70px;
+  top: 60px;
+  transform: rotate(45deg);
+}
+
+.line-right {
+  width: 6px;
+  height: 120px;
+  right: 70px;
+  top: 60px;
+  transform: rotate(-45deg);
+}
+
+.line-bottom {
+  width: 180px;
+  height: 6px;
+  left: 60px;
+  bottom: 40px;
+}
+
+.choice {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 15px solid;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.choice img {
+  width: 50px;
+}
+
+.rock { border-color: #0074b6; top: 0; left: 95px; }
+.paper { border-color: #ffa943; bottom: 0; left: 0; }
+.scissors { border-color: #bd00ff; bottom: 0; right: 0; }
+
+/* ROUND SCREEN */
+.vs-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin-top: 80px;
+}
+
+.pick {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pick img {
+  width: 60px;
+}
+
+.win {
+  box-shadow: 0 0 40px 20px rgba(0,255,0,0.6);
+}
+
+.lose {
+  box-shadow: 0 0 40px 20px rgba(255,0,0,0.6);
+}
+
+.result-text {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* BUTTONS */
+.play-btn {
+  margin: 40px auto;
+  display: block;
+  padding: 12px 40px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* HURRAY */
+#hurray-screen {
+  text-align: center;
+  margin-top: 120px;
+}
+#lost-screen {
+  text-align: center;
+  margin-top: 120px;
+}
+
+
+.trophy {
+  width: 160px;
+  margin-bottom: 20px;
+}
+
+/* RULES */
+.rules-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.rules-popup {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: #004225;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.rules-popup ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  width: 30px;
+  height: 30px;
+}
+
+.hidden {
+  display: none;
+}
