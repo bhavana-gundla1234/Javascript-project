@@ -64,7 +64,7 @@
     </div>
   </div>
 
-  <button class="play-btn" onclick="nextRound()">NEXT</button>
+  <button class="play-btn" id="play-again-btn">PLAY AGAIN</button>
 </section>
 
 <!-- HURRAY SCREEN -->
@@ -75,30 +75,22 @@
   <button class="play-btn" onclick="resetGame()">PLAY AGAIN</button>
 </section>
 
-<!-- LOST SCREEN -->
-<section id="lost-screen" class="hidden">
-  <img src="assets/lost.png" class="trophy">
-  <h1>YOU LOST</h1>
-  <p>BETTER LUCK NEXT TIME</p>
-  <button class="play-btn" onclick="resetGame()">PLAY AGAIN</button>
-</section>
-
-<!-- RULES BUTTON -->
-<button class="rules-btn" onclick="toggleRules()">RULES</button>
+<!-- 🔽 BOTTOM RIGHT BUTTONS (ORDER FIXED) -->
+<div class="bottom-buttons">
+  <button class="rules-btn" onclick="toggleRules()">RULES</button>
+  <button class="next-btn hidden" id="next-btn">NEXT</button>
+</div>
 
 <!-- RULES POPUP -->
 <div class="rules-popup hidden" id="rules-popup">
   <h3>Game Rules</h3>
   <ul>
-    <li>Rock beats Scissors.</li>
-    <li>Scissors beats Paper.</li>
-    <li>Paper beats Rock.</li>
-    <li>If both players choose the same option, the round is declared a tie.</li>
-    <li>Each round winner gets 1 point.</li>
-    <li>No points are awarded for a tie.</li>
-    <li>The first player to reach 15 points wins the game.</li>
-    <li>Scores reset only after the game is fully completed.</li>
-    <li>Play again restarts the entire game.</li>
+    <li>Rock beats Scissors</li>
+    <li>Scissors beats Paper</li>
+    <li>Paper beats Rock</li>
+    <li>Same choice → Tie</li>
+    <li>Winner gets 1 point</li>
+    <li>Scores never reset on refresh</li>
   </ul>
   <button class="close-btn" onclick="toggleRules()">X</button>
 </div>

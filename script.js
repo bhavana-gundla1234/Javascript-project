@@ -6,17 +6,23 @@ const pcScoreEl = document.getElementById("pc-score");
 const gameScreen = document.getElementById("game-screen");
 const roundScreen = document.getElementById("round-screen");
 const hurrayScreen = document.getElementById("hurray-screen");
-const lostScreen = document.getElementById("lost-screen");
 const header = document.getElementById("header");
 
 const userPick = document.getElementById("user-pick");
 const pcPick = document.getElementById("pc-pick");
 const roundResult = document.getElementById("round-result");
 
-let userScore = 0;
-let pcScore = 0;
-const WIN_SCORE = 15;
+const nextBtn = document.getElementById("next-btn");
+const playAgainBtn = document.getElementById("play-again-btn");
 
+/* LOAD SCORES */
+let userScore = Number(localStorage.getItem("userScore")) || 0;
+let pcScore = Number(localStorage.getItem("pcScore")) || 0;
+
+userScoreEl.textContent = userScore;
+pcScoreEl.textContent = pcScore;
+
+/* GAME LOGIC */
 choices.forEach(btn => {
   btn.addEventListener("click", () => playRound(btn.dataset.choice));
 });
@@ -29,11 +35,12 @@ function playRound(userChoice) {
 
   userPick.className = "pick";
   pcPick.className = "pick";
+  nextBtn.classList.add("hidden");
 
   if (userChoice === pcChoice) {
     roundResult.textContent = "TIED UP";
-    userPick.classList.add("win");
-    pcPick.classList.add("win");
+    userPick.classList.add("tie");
+    pcPick.classList.add("tie");
   }
   else if (
     (userChoice === "rock" && pcChoice === "scissors") ||
@@ -41,12 +48,18 @@ function playRound(userChoice) {
     (userChoice === "scissors" && pcChoice === "paper")
   ) {
     userScore++;
+    localStorage.setItem("userScore", userScore);
+
     roundResult.textContent = "YOU WON AGAINST PC";
     userPick.classList.add("win");
     pcPick.classList.add("lose");
+
+    nextBtn.classList.remove("hidden");
   }
   else {
     pcScore++;
+    localStorage.setItem("pcScore", pcScore);
+
     roundResult.textContent = "YOU LOST AGAINST PC";
     pcPick.classList.add("win");
     userPick.classList.add("lose");
@@ -57,54 +70,29 @@ function playRound(userChoice) {
 
   gameScreen.classList.add("hidden");
   roundScreen.classList.remove("hidden");
-
-if (userScore === WIN_SCORE) {
-  setTimeout(showHurray, 800);
 }
 
-if (pcScore === WIN_SCORE) {
-  setTimeout(showLost, 800);
-}
-
-
-}
-
-function nextRound() {
+/* PLAY AGAIN (ROUND) */
+playAgainBtn.addEventListener("click", () => {
   roundScreen.classList.add("hidden");
   gameScreen.classList.remove("hidden");
-}
+});
 
-function showHurray() {
+/* NEXT → HURRAY */
+nextBtn.addEventListener("click", () => {
   header.classList.add("hidden");
   document.querySelector(".rules-btn").classList.add("hidden");
+  nextBtn.classList.add("hidden");
+
   roundScreen.classList.add("hidden");
   hurrayScreen.classList.remove("hidden");
-}
-
-function showLost() {
-  header.classList.add("hidden");
-  document.querySelector(".rules-btn").classList.add("hidden");
-
-  gameScreen.classList.add("hidden");
-  roundScreen.classList.add("hidden");
-
-  lostScreen.classList.remove("hidden");
-}
+});
 
 function resetGame() {
-  userScore = 0;
-  pcScore = 0;
-
-  userScoreEl.textContent = 0;
-  pcScoreEl.textContent = 0;
-
   header.classList.remove("hidden");
   document.querySelector(".rules-btn").classList.remove("hidden");
 
   hurrayScreen.classList.add("hidden");
-  lostScreen.classList.add("hidden");
-  roundScreen.classList.add("hidden");
-
   gameScreen.classList.remove("hidden");
 }
 

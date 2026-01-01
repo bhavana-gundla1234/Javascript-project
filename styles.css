@@ -10,7 +10,7 @@ body {
   color: white;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 .header {
   width: 80%;
   margin: 30px auto;
@@ -39,7 +39,7 @@ body {
   font-weight: bold;
 }
 
-/* GAME */
+/* ================= GAME (TRIANGLE) ================= */
 .triangle-container {
   position: relative;
   width: 300px;
@@ -54,17 +54,17 @@ body {
 
 .line-left {
   width: 6px;
-  height: 120px;
-  left: 70px;
-  top: 60px;
+  height: 140px;
+  left: 78px;
+  top: 65px;
   transform: rotate(45deg);
 }
 
 .line-right {
   width: 6px;
-  height: 120px;
-  right: 70px;
-  top: 60px;
+  height: 140px;
+  right: 78px;
+  top: 65px;
   transform: rotate(-45deg);
 }
 
@@ -92,11 +92,25 @@ body {
   width: 50px;
 }
 
-.rock { border-color: #0074b6; top: 0; left: 95px; }
-.paper { border-color: #ffa943; bottom: 0; left: 0; }
-.scissors { border-color: #bd00ff; bottom: 0; right: 0; }
+.rock {
+  border-color: #0074b6;
+  top: 0;
+  left: 95px;
+}
 
-/* ROUND SCREEN */
+.paper {
+  border-color: #ffa943;
+  bottom: 0;
+  left: 0;
+}
+
+.scissors {
+  border-color: #bd00ff;
+  bottom: 0;
+  right: 0;
+}
+
+/* ================= ROUND RESULT SCREEN ================= */
 .vs-container {
   display: flex;
   justify-content: center;
@@ -119,20 +133,34 @@ body {
   width: 60px;
 }
 
-.win {
-  box-shadow: 0 0 40px 20px rgba(0,255,0,0.6);
-}
-
-.lose {
-  box-shadow: 0 0 40px 20px rgba(255,0,0,0.6);
-}
-
 .result-text {
   font-size: 28px;
   font-weight: bold;
 }
 
-/* BUTTONS */
+/* ================= RIPPLE EFFECTS ================= */
+.win {
+  box-shadow:
+    0 0 0 10px rgba(0, 255, 0, 0.4),
+    0 0 0 25px rgba(0, 255, 0, 0.25),
+    0 0 0 40px rgba(0, 255, 0, 0.15);
+}
+
+.lose {
+  box-shadow:
+    0 0 0 10px rgba(255, 0, 0, 0.4),
+    0 0 0 25px rgba(255, 0, 0, 0.25),
+    0 0 0 40px rgba(255, 0, 0, 0.15);
+}
+
+.tie {
+  box-shadow:
+    0 0 0 10px rgba(255, 165, 0, 0.5),
+    0 0 0 25px rgba(255, 165, 0, 0.3),
+    0 0 0 40px rgba(255, 165, 0, 0.15);
+}
+
+/* ================= BUTTONS ================= */
 .play-btn {
   margin: 40px auto;
   display: block;
@@ -142,27 +170,17 @@ body {
   cursor: pointer;
 }
 
-/* HURRAY */
-#hurray-screen {
-  text-align: center;
-  margin-top: 120px;
-}
-#lost-screen {
-  text-align: center;
-  margin-top: 120px;
-}
-
-
-.trophy {
-  width: 160px;
-  margin-bottom: 20px;
-}
-
-/* RULES */
-.rules-btn {
+/* Bottom-right RULES → NEXT */
+.bottom-buttons {
   position: fixed;
   bottom: 20px;
   right: 20px;
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.rules-btn {
   border: 2px solid white;
   background: transparent;
   color: white;
@@ -171,6 +189,27 @@ body {
   cursor: pointer;
 }
 
+.next-btn {
+  border: 2px solid white;
+  background: white;
+  color: black;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* ================= HURRAY SCREEN ================= */
+#hurray-screen {
+  text-align: center;
+  margin-top: 120px;
+}
+
+.trophy {
+  width: 160px;
+  margin-bottom: 20px;
+}
+
+/* ================= RULES POPUP ================= */
 .rules-popup {
   position: fixed;
   bottom: 80px;
@@ -179,6 +218,8 @@ body {
   padding: 20px;
   width: 300px;
   border-radius: 10px;
+  border: 2px solid white;
+  z-index: 20;
 }
 
 .rules-popup ul {
@@ -196,8 +237,10 @@ body {
   border: none;
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 
+/* ================= UTIL ================= */
 .hidden {
   display: none;
 }
