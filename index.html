@@ -63,17 +63,33 @@
       <div class="pick" id="pc-pick"></div>
     </div>
   </div>
-
-  <button class="play-btn" id="play-again-btn">PLAY AGAIN</button>
+   <button class="play-btn" id="play-again-btn">PLAY AGAIN</button>
 </section>
+
 
 <!-- HURRAY SCREEN -->
 <section id="hurray-screen" class="hidden">
-  <img src="assets/trophy.png" class="trophy">
+  <div class="trophy-wrapper">
+    <div class="stars">
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+    </div>
+
+    <div class="trophy">
+      <div class="cup"></div>
+      <div class="stem"></div>
+      <div class="base"></div>
+    </div>
+  </div>
+
   <h1>HURRAY!!</h1>
   <p>YOU WON THE GAME</p>
   <button class="play-btn" onclick="resetGame()">PLAY AGAIN</button>
 </section>
+
+
 
 <!-- 🔽 BOTTOM RIGHT BUTTONS (ORDER FIXED) -->
 <div class="bottom-buttons">
@@ -83,14 +99,13 @@
 
 <!-- RULES POPUP -->
 <div class="rules-popup hidden" id="rules-popup">
-  <h3>Game Rules</h3>
-  <ul>
-    <li>Rock beats Scissors</li>
-    <li>Scissors beats Paper</li>
-    <li>Paper beats Rock</li>
-    <li>Same choice → Tie</li>
-    <li>Winner gets 1 point</li>
-    <li>Scores never reset on refresh</li>
+ <center> <h2>Game Rules</h2></center>
+  <ul style="list-style-type:square">
+    <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+    <li>Agree ahead of time whether you'll count off "rock, scissors, shoot" or just "rock, paper, scissors."</li>
+    <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+    <li>If both players lay down the same hand, each player lays down another hand</li>
+   
   </ul>
   <button class="close-btn" onclick="toggleRules()">X</button>
 </div>

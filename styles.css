@@ -39,7 +39,7 @@ body {
   font-weight: bold;
 }
 
-/* ================= GAME (TRIANGLE) ================= */
+/* ================= GAME (INVERTED TRIANGLE) ================= */
 .triangle-container {
   position: relative;
   width: 300px;
@@ -52,29 +52,31 @@ body {
   background: #2f5d38;
 }
 
+/* now lines go DOWNWARD */
 .line-left {
   width: 6px;
   height: 140px;
   left: 78px;
-  top: 65px;
-  transform: rotate(45deg);
+  bottom: 65px;
+  transform: rotate(-45deg);
 }
 
 .line-right {
   width: 6px;
   height: 140px;
   right: 78px;
-  top: 65px;
-  transform: rotate(-45deg);
+  bottom: 65px;
+  transform: rotate(45deg);
 }
 
 .line-bottom {
   width: 180px;
   height: 6px;
   left: 60px;
-  bottom: 40px;
+  top: 40px;
 }
 
+/* CHOICES */
 .choice {
   position: absolute;
   width: 110px;
@@ -92,21 +94,22 @@ body {
   width: 50px;
 }
 
+/* INVERTED POSITIONS */
 .rock {
   border-color: #0074b6;
   top: 0;
-  left: 95px;
+  left: 0px;
 }
 
 .paper {
   border-color: #ffa943;
   bottom: 0;
-  left: 0;
+  left: 95px;
 }
 
 .scissors {
   border-color: #bd00ff;
-  bottom: 0;
+  top: 0;
   right: 0;
 }
 
@@ -141,9 +144,9 @@ body {
 /* ================= RIPPLE EFFECTS ================= */
 .win {
   box-shadow:
-    0 0 0 10px rgba(0, 255, 0, 0.4),
-    0 0 0 25px rgba(0, 255, 0, 0.25),
-    0 0 0 40px rgba(0, 255, 0, 0.15);
+    0 0 0 10px rgba(67, 135, 67, 0.15),
+    0 0 0 25px rgba(0, 255, 0, 0.3),
+    0 0 0 40px rgba(0, 255, 0, 0.5);
 }
 
 .lose {
@@ -204,10 +207,123 @@ body {
   margin-top: 120px;
 }
 
-.trophy {
-  width: 160px;
-  margin-bottom: 20px;
+/* ================= TROPHY WIN ANIMATION ================= */
+.trophy-wrapper {
+  position: relative;
+  width: 180px;
+  height: 200px;
+  margin: 0 auto 30px;
 }
+
+/* TROPHY */
+.trophy {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cup {
+  width: 80px;
+  height: 60px;
+  background: gold;
+  border-radius: 0 0 40px 40px;
+  position: relative;
+}
+
+.cup::before,
+.cup::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 6px solid gold;
+  border-radius: 50%;
+  top: 12px;
+}
+
+.cup::before {
+  left: -26px;
+}
+
+.cup::after {
+  right: -26px;
+}
+
+/* STEM */
+.stem {
+  width: 20px;
+  height: 25px;
+  background: gold;
+  margin: 0 auto;
+}
+
+/* BASE */
+.base {
+  width: 70px;
+  height: 16px;
+  background: #caa400;
+  margin: 6px auto 0;
+  border-radius: 6px;
+}
+
+/* ================= STARS ================= */
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotateStars 6s linear infinite;
+}
+
+.stars span {
+  position: absolute;
+  color: white;
+  font-size: 18px;
+  animation: blink 1.5s infinite alternate;
+}
+
+.stars span:nth-child(1) {
+  top: 0;
+  left: 50%;
+}
+
+.stars span:nth-child(2) {
+  right: 0;
+  top: 50%;
+}
+
+.stars span:nth-child(3) {
+  bottom: 0;
+  left: 50%;
+}
+
+.stars span:nth-child(4) {
+  left: 0;
+  top: 50%;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes rotateStars {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes blink {
+  from {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+
 
 /* ================= RULES POPUP ================= */
 .rules-popup {
@@ -218,25 +334,40 @@ body {
   padding: 20px;
   width: 300px;
   border-radius: 10px;
-  border: 2px solid white;
+
+  /* thicker white border */
+  border: 3px solid white;
+
   z-index: 20;
 }
 
+/* slightly smaller font + yellow bullets */
 .rules-popup ul {
   margin-top: 10px;
-  padding-left: 20px;
+  padding-left: 22px;
+  font-size: 13px;               /* decreased font size */
+  list-style-type: disc;
 }
 
+.rules-popup ul li::marker {
+  color: #ffd700;                /* yellow bullet points */
+}
+
+/* bigger close button */
 .close-btn {
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -14px;
+  right: -14px;
   background: red;
   color: white;
   border-radius: 50%;
   border: none;
-  width: 30px;
-  height: 30px;
+
+  width: 36px;                   /* increased size */
+  height: 36px;                  /* increased size */
+  font-size: 16px;               /* bigger X */
+  font-weight: bold;
+
   cursor: pointer;
 }
 
