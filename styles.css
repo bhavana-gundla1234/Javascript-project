@@ -132,6 +132,19 @@ body {
   align-items: center;
 }
 
+.pick.rock {
+  border: 15px solid #0074b6;
+}
+
+.pick.paper {
+  border: 15px solid #ffa943;
+}
+
+.pick.scissors {
+  border: 15px solid #bd00ff;
+}
+
+
 .pick img {
   width: 60px;
 }
@@ -375,3 +388,4 @@ body {
 .hidden {
   display: none;
 }
+

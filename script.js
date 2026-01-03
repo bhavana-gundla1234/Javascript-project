@@ -33,14 +33,16 @@ function playRound(userChoice) {
   userPick.innerHTML = `<img src="assets/${userChoice}.jpg">`;
   pcPick.innerHTML = `<img src="assets/${pcChoice}.jpg">`;
 
-  userPick.className = "pick";
-  pcPick.className = "pick";
+  userPick.className = `pick ${userChoice}`;
+  pcPick.className = `pick ${pcChoice}`;
   nextBtn.classList.add("hidden");
 
   if (userChoice === pcChoice) {
     roundResult.textContent = "TIED UP";
-    userPick.classList.add("tie");
-    pcPick.classList.add("tie");
+    // userPick.classList.add("tie");
+    // pcPick.classList.add("tie");
+   
+
   }
   else if (
     (userChoice === "rock" && pcChoice === "scissors") ||
@@ -52,7 +54,7 @@ function playRound(userChoice) {
 
     roundResult.textContent = "YOU WON AGAINST PC";
     userPick.classList.add("win");
-    pcPick.classList.add("lose");
+    // pcPick.classList.add("lose");
 
     nextBtn.classList.remove("hidden");
   }
@@ -62,7 +64,7 @@ function playRound(userChoice) {
 
     roundResult.textContent = "YOU LOST AGAINST PC";
     pcPick.classList.add("win");
-    userPick.classList.add("lose");
+    // userPick.classList.add("lose");
   }
 
   userScoreEl.textContent = userScore;
