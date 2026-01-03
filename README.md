@@ -1,94 +1,94 @@
-   🎮 Rock Paper Scissors Game
+🪨📄✂️ Rock Paper Scissors Game
 
-A modern, interactive Rock Paper Scissors web game built using HTML, CSS, and JavaScript, inspired by popular online game interfaces.
-The project features clean UI transitions, score tracking, visual feedback, and separate win/lose screens.
+     A browser-based Rock Paper Scissors game built using HTML, CSS, and JavaScript, designed to closely match the provided Figma design and functional requirements.
+     The game allows a human player to compete against the computer with persistent scoring, visual feedback, and an interactive UI.
 
-  🚀 Live Preview
-Open index.html in your browser to play the game.
+🚀 Live Gameplay Overview
+
+   .Player selects Rock / Paper / Scissors
+   .Computer makes a random choice
+   .Result is displayed instantly
+   .Scores update and persist across refresh
+   .Special win celebration screen appears only when the user wins
 
 ✨ Features
-.🎯 Target Score Gameplay
-   .First player to reach 15 points wins the game.
-🟢🔴 Clear Visual Feedback
-   🟢 Green glow → Winner
-   🔴 Red glow → Loser
-   🟢🟢 Both green → Tie
+ 🎮 Gameplay
 
-🧠 Accurate Game Logic
-  Rock beats Scissors
-  Scissors beats Paper
-  Paper beats Rock
-  Same choice → Tie
+   .Human vs Computer gameplay
+   .Simultaneous move selection
+   .Randomized computer logic
+   .Instant result display: 
+     .YOU WON AGAINST PC
+     .YOU LOST AGAINST PC
+     .TIED UP
 
-🏆 Winning Screen
- Full-screen HURRAY page
- Shown only when player wins
- Header, scores, and rules hidden
+  🧮 Score Management
 
-😢 Losing Screen
- Shown when computer wins
- Separate UI similar to winning screen
- Encouraging message
- 
- 📊 Score Management
-  Scores update after every round
-  Scores reset only after game ends
+    .Scores stored using LocalStorage
+    .Scores do NOT reset on refresh
+    .Scores increment after every round
+    .No target score limit
 
-📜 Rules Panel
-  Fixed at bottom-right
-  Toggle open/close
-  Detailed game rules included
+  🎨 UI & Animations
 
-🛠️ Tech Stack
-  HTML5 – Structure
-  CSS3 – Styling & visual effects
-  JavaScript – Game logic & DOM manipulation
+     .Inverted triangle game layout
+     .Color-coded borders:
+       .Rock → Blue
+       .Paper → Orange
+       .Scissors → Purple
+      .Green ripple animation (3 rings) appears only on the winner
+      .No animation on tie or loss
+      .Borders remain unchanged during animations
 
-📂 Project Structure
+  🏆 Win Celebration
+
+     .“HURRAY!!” screen appears only when user wins
+     .Trophy animation created using pure CSS
+     .Animated rotating stars around trophy
+     .“NEXT” button appears only after a user win
+
+  📜 Rules Section
+
+     .Rules button fixed at bottom-right
+     .Click to open/close popup
+     .Styled popup with:
+       .Thick white border
+       .Yellow bullet points
+       .Close button
+
+🗂️ Project Structure
 rock-paper-scissors/
 │
-├── index.html        # Main HTML file
-├── styles.css        # Styling and UI effects
-├── script.js         # Game logic
+├── index.html        # Main HTML structure
+├── styles.css        # Styling, layout, animations
+├── script.js         # Game logic & DOM handling
+├── assets/
+│   ├── rock.jpg
+│   ├── paper.jpg
+│   ├── scissors.jpg
 │
-└── assets/
-    ├── rock.png
-    ├── paper.png
-    ├── scissors.png
-    ├── trophy.png
-    ├── lost.png
+└── README.md         # Project documentation
 
-▶️ How to Run
-   Clone or download this repository
-   Open index.html in any modern browser
-   Start playing 🎉
-   No installations or server required.
+   🛠️ Technologies Used
 
-📜 Game Rules
-  Rock beats Scissors
-  Scissors beats Paper
-  Paper beats Rock
-  Same choice results in a Tie
-  Winner of a round gets 1 point
-  First player to reach 15 points wins the game
-  Scores reset only after final win or loss
+      .HTML5 – Structure
+      .CSS3 – Styling, layout, animations
+      .JavaScript (ES6) – Game logic, DOM manipulation
+      .LocalStorage API – Persistent score storage
 
-💡 Possible Enhancements
-   🔊 Sound effects
-   ⭐ Star/confetti animations
-   🏆 Best-of-3 / Best-of-5 mode
-  🌙 Dark mode
+    🧠 Game Rules
 
-👩‍💻 Author
- Bhavana Gundla
+      .Rock beats Scissors
+      .Scissors beats Paper
+      .Paper beats Rock
+      .Same choice results in a Tie
+      .Winner gains 1 point
+      .Scores are saved automatically
+      .Game can be played indefinitely
 
-This project was developed as a frontend JavaScript assignment to demonstrate:
-  DOM manipulation
-  UI state management
-  Game logic implementation
-  Clean and user-friendly design
+    📦 How to Run Locally
 
-📜 License
-  This project is open-source and free to use for learning and educational purposes.
-
-⭐ If you like this project, don’t forget to give it a star!
+       .Download or clone the repository
+       .Open index.html in any modern browser
+       .Start playing 🎉
+       .No build tools or dependencies required.
